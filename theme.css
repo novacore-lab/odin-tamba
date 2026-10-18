@@ -238,7 +238,7 @@ h1 > span { color: #c62620; background: linear-gradient(transparent 75%, #ffe143
 .genre-note { font-size: 12px; text-align: right; color: #40594d; margin-top: 19px; }
 .section { padding-block: 72px; }
 #items { padding-top: 28px; }
-.section-heading { padding: 24px 30px; border-radius: 7px; background: #008447; border-bottom: 6px solid #ffe143; margin-bottom: 30px; }
+.section-heading { padding: 24px 30px; border-radius: 7px; background: #00733d; border-bottom: 6px solid #ffe143; margin-bottom: 30px; }
 .section-heading h2 { color: #fff; font-size: clamp(28px,3vw,40px); line-height: 1.5; letter-spacing: -.03em; }
 .section-heading .section-kicker { color: #ffe143; font-size: 13px; }
 .section-heading .heading-note { color: #fff; font-size: 13px; }
