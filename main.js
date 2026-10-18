@@ -178,8 +178,8 @@ if (visual) {
   }
 }
 
-// Only source-verified Google reviews are eligible for the testimonial carousel.
-// Keep the Google Maps link visible when no verified review text is available.
+// Reviews are checked against the cited public source before being added.
+// Static HTML keeps the sourced excerpts readable if JavaScript or fetch fails.
 async function loadReviewCarousel() {
   const track = document.getElementById('review-track');
   if (!track) return;
@@ -192,7 +192,7 @@ async function loadReviewCarousel() {
       if (!review || review.verified !== true || typeof review.text !== 'string' || !review.text.trim() || typeof review.author !== 'string' || !review.author.trim()) return false;
       try {
         const source = new URL(review.source);
-        return source.protocol === 'https:' && /(^|\.)google\.(com|co\.jp)$/.test(source.hostname);
+        return source.protocol === 'https:' && ['www.google.com', 'google.com', 'maps.google.com', 'www.google.co.jp', 'map.yahoo.co.jp', 'www.ekiten.jp', 'hikakaku.com'].includes(source.hostname) && typeof review.sourceLabel === 'string' && review.sourceLabel.trim();
       } catch { return false; }
     }) : [];
   } catch { return; }
@@ -215,17 +215,19 @@ async function loadReviewCarousel() {
     avatar.setAttribute('aria-hidden', 'true');
     author.append(avatar);
     const person = element('div', 'review-person');
-    person.append(element('p', 'review-author-name', review.author));
+    person.append(element('p', 'review-author-name', `${review.author} さん`));
     if (typeof review.date === 'string') person.append(element('p', 'review-date', review.date));
     author.append(person);
     card.append(author);
-    if (Number.isInteger(review.rating) && review.rating >= 1 && review.rating <= 5) {
-      const stars = element('p', 'review-stars', '★'.repeat(review.rating));
+    if (typeof review.context === 'string') card.append(element('p', 'review-context', review.context));
+    if (Number.isFinite(review.rating) && review.rating >= 1 && review.rating <= 5) {
+      const stars = element('p', 'review-stars', `★ ${review.rating.toFixed(1)} / 5`);
       stars.setAttribute('aria-label', `5点中${review.rating}点`);
       card.append(stars);
     }
     card.append(element('blockquote', 'review-quote', review.text));
-    const source = element('a', 'review-source', '出典：Googleマップの口コミ ↗');
+    if (review.excerpt === true) card.append(element('span', 'review-excerpt', '投稿の一部を抜粋'));
+    const source = element('a', 'review-source', `出典：${review.sourceLabel} ↗`);
     source.href = review.source;
     source.target = '_blank';
     source.rel = 'noopener noreferrer';

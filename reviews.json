@@ -1,1 +1,57 @@
-[]
+[
+  {
+    "author": "L",
+    "date": "2026年5月23日",
+    "rating": 3,
+    "text": "分かりやすく教えてくれます。",
+    "context": "貴金属の買取について",
+    "source": "https://hikakaku.com/company/305/shops/9159/",
+    "sourceLabel": "ヒカカク！",
+    "excerpt": true,
+    "verified": true
+  },
+  {
+    "author": "ee",
+    "date": "2025年7月30日",
+    "rating": 5,
+    "text": "なんでもあります！",
+    "context": "お店の品ぞろえについて",
+    "source": "https://map.yahoo.co.jp/v3/place/BENxgNIC1CQ/review",
+    "sourceLabel": "Yahoo!マップ",
+    "excerpt": false,
+    "verified": true
+  },
+  {
+    "author": "Yahoo!マップユーザー",
+    "date": "2024年2月18日",
+    "rating": 4.5,
+    "text": "掘り出し物を探す 楽しみがあります。",
+    "context": "お買い物・品ぞろえについて",
+    "source": "https://map.yahoo.co.jp/v3/place/BENxgNIC1CQ/review",
+    "sourceLabel": "Yahoo!マップ",
+    "excerpt": true,
+    "verified": true
+  },
+  {
+    "author": "mullmull",
+    "date": "2018年4月7日",
+    "rating": 5,
+    "text": "探してたぬいぐるみをここで見つけました。\n大切にしています。",
+    "context": "お買い物の感想",
+    "source": "https://www.ekiten.jp/shop_2907879/",
+    "sourceLabel": "エキテン",
+    "excerpt": true,
+    "verified": true
+  },
+  {
+    "author": "お店大好きっ子！",
+    "date": "2009年6月2日",
+    "rating": 5,
+    "text": "とってもお店全体の雰囲気がよい！",
+    "context": "来店時の雰囲気について",
+    "source": "https://www.ekiten.jp/shop_2907879/",
+    "sourceLabel": "エキテン",
+    "excerpt": true,
+    "verified": true
+  }
+]
