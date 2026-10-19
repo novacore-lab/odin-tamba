@@ -1,3 +1,53 @@
+function setupResponsiveNavigation() {
+  const header = document.querySelector('.site-header');
+  const toggle = document.getElementById('nav-toggle');
+  const navigation = document.getElementById('primary-navigation');
+  if (!header || !toggle || !navigation) return;
+  const mobile = window.matchMedia('(max-width: 1050px)');
+  const label = toggle.querySelector('.nav-toggle-label');
+  const setOpen = (requested, restoreFocus = false) => {
+    const open = mobile.matches && requested;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    if (label) label.textContent = open ? '閉じる' : 'メニュー';
+    navigation.hidden = mobile.matches && !open;
+    header.classList.toggle('menu-open', open);
+    if (restoreFocus && mobile.matches) toggle.focus();
+  };
+  const sync = () => {
+    toggle.hidden = !mobile.matches;
+    setOpen(false);
+  };
+  header.classList.add('navigation-ready');
+  toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  navigation.addEventListener('click', (event) => {
+    const link = event.target.closest('a');
+    if (!link || !mobile.matches) return;
+    setOpen(false);
+    const target = link.hash && document.getElementById(link.hash.slice(1));
+    if (target) {
+      if (!target.hasAttribute('tabindex')) {
+        target.setAttribute('tabindex', '-1');
+        target.addEventListener('blur', () => target.removeAttribute('tabindex'), {once: true});
+      }
+      target.focus({preventScroll: true});
+    }
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+      event.preventDefault();
+      setOpen(false, true);
+    }
+  });
+  document.addEventListener('pointerdown', (event) => {
+    if (!header.contains(event.target) && toggle.getAttribute('aria-expanded') === 'true') setOpen(false);
+  });
+  if (mobile.addEventListener) mobile.addEventListener('change', sync);
+  else mobile.addListener(sync);
+  sync();
+}
+setupResponsiveNavigation();
+
 const root = document.documentElement;
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
