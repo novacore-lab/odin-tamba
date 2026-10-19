@@ -539,3 +539,32 @@ body { padding-bottom: calc(108px + env(safe-area-inset-bottom, 0px)); }
   .nav-toggle, .floating-menu { display: none!important; }
   .site-header nav[hidden] { display: none!important; }
 }
+
+
+/* LINE consultation placeholder. Replace with a real link after the account is ready. */
+.floating-menu > .floating-link--line {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid #06c755;
+  border-radius: 10px;
+  background: #e7faed;
+  color: #005b30;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+}
+.floating-menu > .floating-link--line:disabled { opacity: 1; cursor: default; }
+.floating-menu .floating-line-label { display: grid; justify-items: center; gap: 1px; }
+.floating-line-status { display: block; font-size: 10px; font-weight: 700; line-height: 1.2; }
+@media (max-width: 600px) {
+  .floating-menu > .floating-link--line { flex-direction: column; min-height: 58px; gap: 4px; padding: 7px 4px; border-radius: 9px; font-size: 12px; }
+}
