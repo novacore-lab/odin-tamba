@@ -568,3 +568,57 @@ body { padding-bottom: calc(108px + env(safe-area-inset-bottom, 0px)); }
 @media (max-width: 600px) {
   .floating-menu > .floating-link--line { flex-direction: column; min-height: 58px; gap: 4px; padding: 7px 4px; border-radius: 9px; font-size: 12px; }
 }
+
+
+/* Store manager profile: readable introduction and optional longer story. */
+.manager-section { padding: 88px 0; background: #fff2c9; border-block: 1px solid #e7ad00; color: #00317b; }
+.manager-heading { margin-bottom: 36px; }
+.manager-heading .section-kicker { color: #00317b; }
+.manager-heading h2 { font-family: var(--sans); font-size: clamp(28px, 3vw, 40px); }
+.manager-layout { display: grid; grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); align-items: start; gap: clamp(32px, 5vw, 72px); }
+.manager-card { min-width: 0; padding: 32px; border: 2px solid #00317b; border-radius: 16px; background: #fff; box-shadow: 8px 8px 0 #e7ad00; }
+.manager-role { font-size: 12px; font-weight: 700; letter-spacing: .04em; }
+.manager-name { margin-top: 12px; font-family: var(--serif); font-size: clamp(28px, 3vw, 36px); line-height: 1.4; }
+.manager-name span { display: block; margin-top: 6px; font: 500 12px/1.7 var(--sans); letter-spacing: .08em; }
+.manager-birth { margin-top: 16px; font-size: 14px; }
+.manager-founded { display: grid; gap: 2px; margin-top: 28px; padding: 22px 0; border-block: 1px solid #e4d5a7; }
+.manager-founded > span { font-size: 12px; font-weight: 700; }
+.manager-founded strong { font: 400 clamp(32px, 3.6vw, 44px)/1.35 Georgia, serif; letter-spacing: -.04em; }
+.manager-founded small { font-size: 11px; }
+.manager-timeline { display: grid; gap: 22px; list-style: none; margin: 28px 0 0; padding: 0 0 0 17px; border-left: 2px solid #e7ad00; }
+.manager-timeline li { position: relative; padding-left: 3px; }
+.manager-timeline li::before { content: ''; position: absolute; top: 9px; left: -23px; width: 10px; height: 10px; background: #00317b; border-radius: 50%; box-shadow: 0 0 0 3px #fff; }
+.manager-timeline li > span { font-size: 14px; font-weight: 700; }
+.manager-timeline p { margin-top: 4px; font-size: 12px; line-height: 1.9; color: #364966; }
+.manager-message { min-width: 0; font-size: 15px; line-height: 2.1; color: #263b57; overflow-wrap: anywhere; }
+.manager-message > p + p { margin-top: 20px; }
+.manager-message .manager-motto { margin: 0 0 28px; color: #00317b; font: 700 clamp(26px, 2.9vw, 36px)/1.65 var(--serif); letter-spacing: -.04em; }
+.manager-message .manager-belief { border-left: 4px solid #e7ad00; padding: 8px 0 8px 20px; color: #00317b; font-weight: 700; font-size: 19px; line-height: 1.8; }
+.manager-signature { display: grid; gap: 3px; font-size: 12px; }
+.manager-signature span { font: 700 22px/1.7 var(--serif); color: #00317b; }
+.manager-story { margin-top: 28px; border-block: 1px solid #c8ae60; }
+.manager-story summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; padding: 16px 0; font-weight: 700; color: #00317b; cursor: pointer; list-style: none; font-size: 14px; line-height: 1.7; }
+.manager-story summary::-webkit-details-marker { display: none; }
+.manager-story summary > span { font-size: 23px; flex-shrink: 0; line-height: 1; }
+.manager-story[open] summary > span { transform: rotate(45deg); }
+.manager-story-body { padding-bottom: 24px; }
+.manager-story-body h3 { color: #00317b; font-size: 17px; margin-bottom: 12px; }
+.manager-story-body p + p, .manager-story-body p + h3 { margin-top: 20px; }
+.manager-story-body .manager-condition { padding: 14px 16px; background: #fff; border-radius: 6px; font-size: 12px; line-height: 1.9; }
+.manager-condition a { color: #00317b; font-weight: 700; }
+.manager-consult { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 48px; margin-top: 22px; color: #00317b; font-size: 14px; font-weight: 700; text-underline-offset: 6px; }
+@media (max-width: 760px) {
+  .manager-section { padding: 56px 0; }
+  .manager-heading { margin-bottom: 26px; }
+  .manager-layout { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .manager-card { padding: 26px; margin-right: 7px; box-shadow: 7px 7px 0 #e7ad00; }
+  .manager-founded { margin-top: 22px; }
+  .manager-message { font-size: 15px; line-height: 2; }
+  .manager-message .manager-motto { font-size: clamp(25px, 6.6vw, 32px); }
+  .manager-message .manager-belief { font-size: 18px; padding-left: 16px; }
+}
+@media print {
+  .manager-section { background: #fff; }
+  .manager-card { box-shadow: none; break-inside: avoid; }
+  .manager-consult { display: none; }
+}
