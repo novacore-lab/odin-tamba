@@ -570,6 +570,11 @@ body { padding-bottom: calc(108px + env(safe-area-inset-bottom, 0px)); }
 }
 
 
+/* Original manager photograph, displayed in its full proportions. */
+.manager-portrait { width: 100%; max-width: 320px; margin: 0 auto 24px; }
+.manager-portrait img { display: block; width: 100%; height: auto; border-radius: 8px; }
+@media (max-width: 760px) { .manager-portrait { max-width: 280px; margin-bottom: 22px; } }
+
 /* Store manager profile: readable introduction and optional longer story. */
 .manager-section { padding: 88px 0; background: #fff2c9; border-block: 1px solid #e7ad00; color: #00317b; }
 .manager-heading { margin-bottom: 36px; }
